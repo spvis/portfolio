@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "gallery:manifest": "node ./scripts/generate-gallery-manifest.mjs",
+    "build": "npm run gallery:manifest && npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --minify",
+    "dev": "npm run gallery:manifest && npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
+    "deploy:prepare": "npm run build && node ./scripts/prepare-gh-pages.mjs"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.2",
+    "tailwindcss": "^4.2.2"
+  }
+}
